@@ -1,3 +1,5 @@
+import {mdOptionsList} from "./md";
+
 export const Reset = '\x1b[0m';
 
 type TEffects = keyof typeof  effects;
@@ -19,7 +21,7 @@ export const fontColors: TColorsVal = {
     white: '\x1b[37m',
 };
 type TColorsName = 'black'| 'blue'| 'cyan'| 'green'| 'magenta'| 'red'| 'white'| 'yellow';
-export const colors = ['black', 'blue', 'cyan', 'green', 'magenta', 'red', 'white', 'yellow'];
+export const colors: Array<TColorsName>  = ['black', 'blue', 'cyan', 'green', 'magenta', 'red', 'white', 'yellow'];
 
 type TColorsVal = {
     [P in TColorsName]: string;
@@ -56,10 +58,15 @@ export interface IColorOptions {
 
 }
 
+type TMdOptions = {
+    [K in TMdOption]: string
+}
+
 export type {
     TContrast,
     TColorsVal,
     TColorsName,
     TEffects,
     TMdOption,
+    TMdOptions,
 }
