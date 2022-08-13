@@ -1,4 +1,4 @@
-import { color } from './colors';
+import { color } from './colors.js';
 export const mdOptionsList = ['bold', 'italic', 'mono', 'link', 'blockquote'];
 export function markdown(text, options) {
     let result = text;

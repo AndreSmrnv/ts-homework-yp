@@ -1,5 +1,5 @@
-import { style } from './style';
-import { contrast, fontColors } from './model';
+import { style } from './style.js';
+import { contrast, fontColors } from './model.js';
 console.log('colors:');
 style.color('red')('red text');
 style.color('green')('green text');

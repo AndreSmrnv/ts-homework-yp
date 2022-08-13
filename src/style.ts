@@ -1,6 +1,6 @@
-import { color } from './colors';
-import { markdown, mdOptionsList } from './md';
-import { colors } from './model';
+import { color } from './colors.js';
+import { markdown, mdOptionsList } from './md.js';
+import { colors } from './model.js';
 function isMarkdownOptions(options) {
     return mdOptionsList.some(key => key in options);
 }
