@@ -1,13 +1,8 @@
-import {
-    backgroundColors,
-    effects,
-    fontColors,
-    Reset,
-    IColorOptions,
-}                       from './model';
+import {backgroundColors, effects, fontColors, Reset,}                       from './model';
 import type {
     TColorsName,
     TEffects,
+    ColorOptions,
 }                       from './model';
 
 function addColor(text: string, color: TColorsName, isBackground = false): string {
@@ -20,7 +15,7 @@ function getEffects(effectList: Array<TEffects>): string {
     return effectList.map(effect => effects[effect]).join('');
 }
 
-export function color(text: string, options?: IColorOptions): string {
+export function color(text: string, options?: ColorOptions): string {
     const preparedText = text.replace(/ё/g, 'е');
     let result = '';
     if (options) {

@@ -1,10 +1,11 @@
 import { color } from './colors';
 import type {
-    TMdOption
+    TMdOption,
+    TLogOptions
 }                       from './model';
 export const mdOptionsList: Array<TMdOption> = ['bold', 'italic', 'mono', 'link', 'blockquote'];
 
-export function markdown(text: string, options: {[K in TMdOption]: string}): string {
+export function markdown(text: string, options: TLogOptions ): string {
     let result = text;
     if (options) {
         if (options.bold) {

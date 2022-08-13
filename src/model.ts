@@ -1,8 +1,5 @@
-import {mdOptionsList} from "./md";
-
 export const Reset = '\x1b[0m';
 
-type TEffects = keyof typeof  effects;
 export const effects = {
     bright: '\x1b[1m',
     dim: '\x1b[2m',
@@ -10,6 +7,7 @@ export const effects = {
     underscore: '\x1b[4m',
     blink: '\x1b[5m',
 };
+
 export const fontColors: TColorsVal = {
     black: '\x1b[30m',
     red: '\x1b[31m',
@@ -20,12 +18,9 @@ export const fontColors: TColorsVal = {
     cyan: '\x1b[36m',
     white: '\x1b[37m',
 };
-type TColorsName = 'black'| 'blue'| 'cyan'| 'green'| 'magenta'| 'red'| 'white'| 'yellow';
+
 export const colors: Array<TColorsName>  = ['black', 'blue', 'cyan', 'green', 'magenta', 'red', 'white', 'yellow'];
 
-type TColorsVal = {
-    [P in TColorsName]: string;
-};
 export const backgroundColors: TColorsVal = {
     black: '\x1b[40m',
     red: '\x1b[41m',
@@ -37,8 +32,7 @@ export const backgroundColors: TColorsVal = {
     white: '\x1b[47m',
 };
 
-type TContrast = keyof typeof  contrast;
-export const contrast = {
+export const contrast: TContrastVal = {
     black: 'white',
     red: 'black',
     green: 'black',
@@ -49,18 +43,39 @@ export const contrast = {
     white: 'black',
 };
 
-type TMdOption = 'bold'| 'italic'| 'mono'| 'link'| 'blockquote';
+type TColorsName =  string;
 
-export interface IColorOptions {
+type TColorsVal = {
+    [P in TColorsName]: string;
+};
+
+type TContrastVal = {
+    [P in TColorsName]: string;
+};
+
+type TMdOptionBool = 'bold'| 'italic'| 'mono'| 'blockquote';
+type TMdOptionStr = 'link';
+type TMdOption = 'bold'| 'italic'| 'mono'| 'blockquote' | 'link' ;
+
+type ColorOptions = {
     font?: TColorsName;
     background?: TColorsName;
     effects?: Array<TEffects>;
 
 }
+type TContrast = keyof typeof  contrast;
 
-type TMdOptions = {
-    [K in TMdOption]: string
-}
+type TMdOptions =
+  {
+    bold: boolean;
+    italic: boolean;
+    mono: boolean;
+    blockquote: boolean;
+    link: string
+  };
+type TLogOptions = Partial<ColorOptions & TMdOptions>
+
+type TEffects = keyof typeof  effects;
 
 export type {
     TContrast,
@@ -69,4 +84,6 @@ export type {
     TEffects,
     TMdOption,
     TMdOptions,
+    ColorOptions,
+    TLogOptions,
 }
