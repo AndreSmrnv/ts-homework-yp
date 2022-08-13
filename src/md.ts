@@ -1,6 +1,10 @@
-import { color } from './colors.js';
-export const mdOptionsList = ['bold', 'italic', 'mono', 'link', 'blockquote'];
-export function markdown(text, options) {
+import { color } from './colors';
+import type {
+    TMdOption
+}                       from './model';
+export const mdOptionsList: Array<TMdOption> = ['bold', 'italic', 'mono', 'link', 'blockquote'];
+
+export function markdown(text: string, options: {[K in TMdOption]: string}): string {
     let result = text;
     if (options) {
         if (options.bold) {

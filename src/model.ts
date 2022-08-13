@@ -47,9 +47,19 @@ export const contrast = {
     white: 'black',
 };
 
+type TMdOption = 'bold'| 'italic'| 'mono'| 'link'| 'blockquote';
+
+export interface IColorOptions {
+    font?: TColorsName;
+    background?: TColorsName;
+    effects?: Array<TEffects>;
+
+}
+
 export type {
     TContrast,
     TColorsVal,
     TColorsName,
-    TEffects
+    TEffects,
+    TMdOption,
 }
