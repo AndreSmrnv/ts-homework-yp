@@ -1,4 +1,6 @@
 export const Reset = '\x1b[0m';
+
+type TEffects = keyof typeof  effects;
 export const effects = {
     bright: '\x1b[1m',
     dim: '\x1b[2m',
@@ -6,7 +8,7 @@ export const effects = {
     underscore: '\x1b[4m',
     blink: '\x1b[5m',
 };
-export const fontColors = {
+export const fontColors: TColorsVal = {
     black: '\x1b[30m',
     red: '\x1b[31m',
     green: '\x1b[32m',
@@ -16,8 +18,13 @@ export const fontColors = {
     cyan: '\x1b[36m',
     white: '\x1b[37m',
 };
+type TColorsName = 'black'| 'blue'| 'cyan'| 'green'| 'magenta'| 'red'| 'white'| 'yellow';
 export const colors = ['black', 'blue', 'cyan', 'green', 'magenta', 'red', 'white', 'yellow'];
-export const backgroundColors = {
+
+type TColorsVal = {
+    [P in TColorsName]: string;
+};
+export const backgroundColors: TColorsVal = {
     black: '\x1b[40m',
     red: '\x1b[41m',
     green: '\x1b[42m',
@@ -27,6 +34,8 @@ export const backgroundColors = {
     cyan: '\x1b[46m',
     white: '\x1b[47m',
 };
+
+type TContrast = keyof typeof  contrast;
 export const contrast = {
     black: 'white',
     red: 'black',
@@ -37,3 +46,10 @@ export const contrast = {
     cyan: 'black',
     white: 'black',
 };
+
+export type {
+    TContrast,
+    TColorsVal,
+    TColorsName,
+    TEffects
+}
